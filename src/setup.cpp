@@ -335,7 +335,7 @@ void main_setup() { // benchmark; required extensions in defines.hpp: BENCHMARK,
 
 
 
-void main_setup() { // Concorde; required extensions in defines.hpp: FP16S, EQUILIBRIUM_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS
+/*void main_setup() { // Concorde; required extensions in defines.hpp: FP16S, EQUILIBRIUM_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS
 	// ################################################################## define simulation box size, viscosity and volume force ###################################################################
 	const uint3 lbm_N = resolution(float3(1.0f, 3.0f, 0.5f), 10420u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
 	const float si_u = 300.0f/3.6f;
@@ -382,9 +382,9 @@ void main_setup() { // Concorde; required extensions in defines.hpp: FP16S, EQUI
 
 
 
-/*void main_setup() { // Boeing 747; required extensions in defines.hpp: FP16S, EQUILIBRIUM_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS or GRAPHICS
+void main_setup() { // Boeing 747; required extensions in defines.hpp: FP16S, EQUILIBRIUM_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS or GRAPHICS
 	// ################################################################## define simulation box size, viscosity and volume force ###################################################################
-	const uint3 lbm_N = resolution(float3(1.0f, 2.0f, 0.5f), 880u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
+	const uint3 lbm_N = resolution(float3(1.0f, 2.0f, 0.5f), 10000u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
 	const float lbm_Re = 1000000.0f;
 	const float lbm_u = 0.1f;
 	const uint lbm_T = 10000u;
@@ -393,7 +393,7 @@ void main_setup() { // Concorde; required extensions in defines.hpp: FP16S, EQUI
 	const float size = 1.0f*lbm.size().x;
 	const float3 center = float3(lbm.center().x, 0.55f*size, lbm.center().z);
 	const float3x3 rotation = float3x3(float3(1, 0, 0), radians(-15.0f));
-	lbm.voxelize_stl(get_exe_path()+"../stl/techtris_airplane.stl", center, rotation, size); // https://www.thingiverse.com/thing:2772812/files
+	lbm.voxelize_stl(get_exe_path()+"techtris_airplane.stl", center, rotation, size); // https://www.thingiverse.com/thing:2772812/files
 	const uint Nx=lbm.get_Nx(), Ny=lbm.get_Ny(), Nz=lbm.get_Nz(); parallel_for(lbm.get_N(), [&](ulong n) { uint x=0u, y=0u, z=0u; lbm.coordinates(n, x, y, z);
 		if(lbm.flags[n]!=TYPE_S) lbm.u.y[n] = lbm_u;
 		if(x==0u||x==Nx-1u||y==0u||y==Ny-1u||z==0u||z==Nz-1u) lbm.flags[n] = TYPE_E; // all non periodic
