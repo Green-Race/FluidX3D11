@@ -384,7 +384,7 @@ void main_setup() { // benchmark; required extensions in defines.hpp: BENCHMARK,
 
 void main_setup() { // Boeing 747; required extensions in defines.hpp: FP16S, EQUILIBRIUM_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS or GRAPHICS
 	// ################################################################## define simulation box size, viscosity and volume force ###################################################################
-	const uint3 lbm_N = resolution(float3(1.0f, 2.0f, 0.5f), 10000u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
+	const uint3 lbm_N = resolution(float3(1.0f, 2.0f, 0.5f), 15000u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
 	const float lbm_Re = 1000000.0f;
 	const float lbm_u = 0.1f;
 	const uint lbm_T = 10000u;
