@@ -497,7 +497,7 @@ void main_setup() { // benchmark; required extensions in defines.hpp: BENCHMARK,
 
 void main_setup() { // radial fan; required extensions in defines.hpp: FP16S, MOVING_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS or GRAPHICS
 	// ################################################################## define simulation box size, viscosity and volume force ###################################################################
-	const uint3 lbm_N = resolution(float3(3.0f, 3.0f, 1.0f), 50000u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
+	const uint3 lbm_N = resolution(float3(3.0f, 3.0f, 1.0f), 15000u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
 	const float lbm_Re = 100000.0f;
 	const float lbm_u = 0.12f;
 	const uint lbm_T = 48000u;
