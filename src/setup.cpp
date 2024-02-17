@@ -507,7 +507,7 @@ void main_setup() { // radial fan; required extensions in defines.hpp: FP16S, MO
 	const float radius = 0.25f*(float)lbm_N.x;
 	const float3 center = float3(lbm.center().x, lbm.center().y, 0.36f*radius);
 	const float lbm_omega=lbm_u/radius, lbm_domega=lbm_omega*lbm_dt;
-	Mesh* mesh = read_stl(get_exe_path()+"../stl/FAN_Solid_Bottom.stl", lbm.size(), center, 2.0f*radius); // https://www.thingiverse.com/thing:6113/files
+	Mesh* mesh = read_stl("/content/FluidX3D11/FAN_Solid_Bottom.stl", lbm.size(), center, 2.0f*radius); // https://www.thingiverse.com/thing:6113/files
 	const uint Nx=lbm.get_Nx(), Ny=lbm.get_Ny(), Nz=lbm.get_Nz(); parallel_for(lbm.get_N(), [&](ulong n) { uint x=0u, y=0u, z=0u; lbm.coordinates(n, x, y, z);
 		if(x==0u||x==Nx-1u||y==0u||y==Ny-1u||z==0u) lbm.flags[n] = TYPE_S; // all non periodic
 	}); // ####################################################################### run simulation, export images and data ##########################################################################
