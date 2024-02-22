@@ -495,7 +495,7 @@ void main_setup() { // benchmark; required extensions in defines.hpp: BENCHMARK,
 
 
 
-void main_setup() { // radial fan; required extensions in defines.hpp: FP16S, MOVING_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS or GRAPHICS
+/*void main_setup() { // radial fan; required extensions in defines.hpp: FP16S, MOVING_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS or GRAPHICS
 	// ################################################################## define simulation box size, viscosity and volume force ###################################################################
 	const uint3 lbm_N = resolution(float3(3.0f, 3.0f, 1.0f), 15000u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
 	const float lbm_Re = 100000.0f;
@@ -528,9 +528,9 @@ void main_setup() { // radial fan; required extensions in defines.hpp: FP16S, MO
 
 
 
-/*void main_setup() { // electric ducted fan (EDF); required extensions in defines.hpp: FP16S, EQUILIBRIUM_BOUNDARIES, MOVING_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS or GRAPHICS
+void main_setup() { // electric ducted fan (EDF); required extensions in defines.hpp: FP16S, EQUILIBRIUM_BOUNDARIES, MOVING_BOUNDARIES, SUBGRID, INTERACTIVE_GRAPHICS or GRAPHICS
 	// ################################################################## define simulation box size, viscosity and volume force ###################################################################
-	const uint3 lbm_N = resolution(float3(1.0f, 1.5f, 1.0f), 8000u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
+	const uint3 lbm_N = resolution(float3(1.0f, 1.5f, 1.0f), 15000u); // input: simulation box aspect ratio and VRAM occupation in MB, output: grid resolution
 	const float lbm_Re = 1000000.0f;
 	const float lbm_u = 0.1f;
 	const uint lbm_T = 180000u;
@@ -539,8 +539,8 @@ void main_setup() { // radial fan; required extensions in defines.hpp: FP16S, MO
 	// ###################################################################################### define geometry ######################################################################################
 	const float3 center = lbm.center();
 	const float3x3 rotation = float3x3(float3(0, 0, 1), radians(180.0f));
-	Mesh* stator = read_stl(get_exe_path()+"../stl/edf_v39.stl", 1.0f, rotation); // https://www.thingiverse.com/thing:3014759/files
-	Mesh* rotor = read_stl(get_exe_path()+"../stl/edf_v391.stl", 1.0f, rotation); // https://www.thingiverse.com/thing:3014759/files
+	Mesh* stator = read_stl(get_exe_path()+"/content/FluidX3D11/edf_v39.stl", 1.0f, rotation); // https://www.thingiverse.com/thing:3014759/files
+	Mesh* rotor = read_stl(get_exe_path()+"/content/FluidX3D11/edf_v391.stl", 1.0f, rotation); // https://www.thingiverse.com/thing:3014759/files
 	const float scale = 0.98f*stator->get_scale_for_box_fit(lbm.size()); // scale stator and rotor to simulation box size
 	stator->scale(scale);
 	rotor->scale(scale);
