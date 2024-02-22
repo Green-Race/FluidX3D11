@@ -539,8 +539,8 @@ void main_setup() { // electric ducted fan (EDF); required extensions in defines
 	// ###################################################################################### define geometry ######################################################################################
 	const float3 center = lbm.center();
 	const float3x3 rotation = float3x3(float3(0, 0, 1), radians(180.0f));
-	Mesh* stator = read_stl(get_exe_path()+"/content/FluidX3D11/edf_v39.stl", 1.0f, rotation); // https://www.thingiverse.com/thing:3014759/files
-	Mesh* rotor = read_stl(get_exe_path()+"/content/FluidX3D11/edf_v391.stl", 1.0f, rotation); // https://www.thingiverse.com/thing:3014759/files
+	Mesh* stator = read_stl("/content/FluidX3D11/edf_v39.stl", 1.0f, rotation); // https://www.thingiverse.com/thing:3014759/files
+	Mesh* rotor = read_stl("/content/FluidX3D11/edf_v391.stl", 1.0f, rotation); // https://www.thingiverse.com/thing:3014759/files
 	const float scale = 0.98f*stator->get_scale_for_box_fit(lbm.size()); // scale stator and rotor to simulation box size
 	stator->scale(scale);
 	rotor->scale(scale);
